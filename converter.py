@@ -1,6 +1,7 @@
-units_dict = {"mm":0.001, "cm":0.01, "m":1, "km":1000}
+units_dict = {"mm": 0.001, "cm": 0.01, "m": 1, "km": 1000, "in": 0.0254, "ft": 0.3048, "yd": 0.9144, "mi": 1609.344}
 
-def convert_length(value,from_unit,to_unit):
+
+def convert_length(value, from_unit, to_unit):
     if from_unit not in units_dict or to_unit not in units_dict:
         raise ValueError("this unit is unknown")
 
@@ -8,7 +9,3 @@ def convert_length(value,from_unit,to_unit):
     to_factor = units_dict[to_unit]
     result = (value * from_factor) / to_factor
     return result
-
-
-    
-    

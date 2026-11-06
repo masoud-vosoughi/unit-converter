@@ -32,6 +32,10 @@
             <option value="cm">Centimeter</option>
             <option value="m">Meter</option>
             <option value="km">Kilometer</option>
+            <option value="in">Inch</option>
+            <option value="ft">Foot</option>
+            <option value="yd">Yard</option>
+            <option value="mi">Mile</option>
         </select>
 
         <br><br>
@@ -43,6 +47,10 @@
             <option value="cm">Centimeter</option>
             <option value="m">Meter</option>
             <option value="km">Kilometer</option>
+            <option value="in">Inch</option>
+            <option value="ft">Foot</option>
+            <option value="yd">Yard</option>
+            <option value="mi">Mile</option>
         </select>
 
         <br><br>
@@ -52,10 +60,11 @@
     </form>
 
     {% if result is not none %}
-    <p>Result: {{ result }}</p>
+        <p>Result: {{ result }}</p>
     {% endif %}
+
     {% if error %}
-    <p style="color: red;">Error: {{ error }}</p>
+        <p style="color: red;">Error: {{ error }}</p>
     {% endif %}
 
 </body>
