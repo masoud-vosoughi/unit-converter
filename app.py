@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 
-from converter import convert_length
+from converter import convert_length, convert_weight
 
 app = Flask(__name__)
 
@@ -10,12 +10,18 @@ def home():
     result = None
     error = None
     if request.method == "POST":
+        category = request.form.get("category")
         from_unit = request.form.get("from_unit")
         to_unit = request.form.get("to_unit")
         try:
             str_value = request.form.get("value")
             value = float(str_value)
-            result = convert_length(value, from_unit, to_unit)
+            if category == "length":
+                result = convert_length(value, from_unit, to_unit)
+            elif category == "weight":
+                result = convert_weight(value, from_unit, to_unit)
+            else:
+                raise ValueError("the category is unknown")
         except ValueError as e:
             error = str(e)
 
