@@ -15,6 +15,8 @@ def home():
         to_unit = request.form.get("to_unit")
         try:
             str_value = request.form.get("value")
+            if str_value is None or str_value.strip() == "":
+                raise ValueError("Please enter a value")
             value = float(str_value)
             if category == "length":
                 result = convert_length(value, from_unit, to_unit)
