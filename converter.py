@@ -29,3 +29,26 @@ def convert_weight(value, from_unit, to_unit):
     to_factor = weight_units[to_unit]
     result = (value * from_factor) / to_factor
     return result
+
+
+def convert_temperature(value, from_unit, to_unit):
+    if from_unit == "c":
+        celsius_value = value
+    elif from_unit == "f":
+        celsius_value = (value - 32) * (5 / 9)
+    elif from_unit == "k":
+        celsius_value = value - 273.15
+    else:
+        raise ValueError("this unit is unknown")
+    if celsius_value < -273.15:
+        raise ValueError("temperature is below absolute zero")
+
+    if to_unit == "c":
+        result = celsius_value
+    elif to_unit == "f":
+        result = celsius_value * (9 / 5) + 32
+    elif to_unit == "k":
+        result = celsius_value + 273.15
+    else:
+        raise ValueError("this unit is unknown")
+    return result

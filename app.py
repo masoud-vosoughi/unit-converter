@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 
-from converter import convert_length, convert_weight
+from converter import convert_length, convert_temperature, convert_weight
 
 app = Flask(__name__)
 
@@ -20,6 +20,8 @@ def home():
                 result = convert_length(value, from_unit, to_unit)
             elif category == "weight":
                 result = convert_weight(value, from_unit, to_unit)
+            elif category == "temperature":
+                result = convert_temperature(value, from_unit, to_unit)
             else:
                 raise ValueError("the category is unknown")
         except ValueError as e:
